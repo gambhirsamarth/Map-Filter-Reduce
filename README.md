@@ -101,3 +101,47 @@ console.log(evenNumbers);
 <br>
 
 <h2>What Is Reduce?</h2>
+
+`reduce()` method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value. The accumulator can be anything (integer, string, object, etc.) and must be instantiated or passed when calling reduce().
+
+<ul>
+<li>The call to reduce() will return a single value.</li>
+<li>The callback function used with reduce will get passed the accumulator value and an element in the array.</li>
+<ul>
+<li>The accumulator value is the value returned from the last call to the callback function.</li>
+<li>The callback function should always return a value to be used in the next callback.</li>
+</ul>
+<li>The third argument to the reduce() function is the starting value for the accumulator.</li>
+</ul>
+
+Let's say that we want to calculate the sum of the numbers array.
+
+>Reduce written with a forEach
+
+<pre>
+const numbers = [1,2,3,4,5,6];
+let sum = 0;
+
+// Iterate over the array
+numbers.forEach((number) => {
+    sum +=  number;
+});
+
+// 21
+console.log(sum);
+</pre>
+
+>Reduce written without a forEach
+
+<pre>
+const numbers = [1,2,3,4,5,6];
+
+// Iterate over the array
+const sum = numbers.reduce((sum, number) => {
+    sum += number;
+    return sum; // Return the accumulator
+}, 0);  // Initialize accumulator variable
+
+// 21
+console.log(sum);
+</pre>
